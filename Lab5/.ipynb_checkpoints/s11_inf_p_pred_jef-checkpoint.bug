@@ -1,0 +1,10 @@
+model {
+# data likelihood
+for (i in 1: length(X)) {
+X[i]~dpois(lambda);
+}
+# a uniform prior for lambda
+lambda~dgamma(0.001, 0.001)
+# Predicted data , given lambda
+y~dpois(lambda);
+}
